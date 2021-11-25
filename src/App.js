@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Container from "@mui/material/Container";
 import Header from "./components/Header/Header";
+import Definations from "./components/Definations/Definations";
 
 function App() {
   const [word, setWord] = useState("");
@@ -22,7 +23,7 @@ function App() {
   // TODO: #1 THIS IS COMMING
   useEffect(() => {
     getDictionary();
-  }, []);
+  }, [word, category]);
   return (
     <div
       className="App"
@@ -38,6 +39,9 @@ function App() {
           word={word}
           setWord={setWord}
         />
+        {meanings && (
+          <Definations word={word} meanings={meanings} category={category} />
+        )}
       </Container>
     </div>
   );
