@@ -11,9 +11,9 @@ function App() {
   const getDictionary = async () => {
     try {
       const data = await axios.get(
-        "https://api.dictionaryapi.dev/api/v2/entries/en/test"
+        `https://api.dictionaryapi.dev/api/v2/entries/${category}/${word}`
       );
-      console.log(data);
+      console.log(data.data);
       setMeanings(data.data);
     } catch (error) {
       console.log(error);
@@ -32,7 +32,12 @@ function App() {
         maxWidth="md"
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
-        <Header category={category} setCategory={setCategory} />
+        <Header
+          category={category}
+          setCategory={setCategory}
+          word={word}
+          setWord={setWord}
+        />
       </Container>
     </div>
   );

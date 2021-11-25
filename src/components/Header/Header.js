@@ -7,7 +7,7 @@ import categories from "../../data/category";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const Header = ({ category, setCategory }) => {
+const Header = ({ category, setCategory, word, setWord }) => {
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -17,19 +17,32 @@ const Header = ({ category, setCategory }) => {
     },
   });
 
+  const handleChange = (language) => {
+    setCategory(language);
+    setWord("");
+  };
+
   return (
     <div className="header">
-      <span className="title">Word Hunt</span>
+      <span className="title">{word ? word : "Dictionary"}</span>
       <div className="inputs">
         <ThemeProvider theme={darkTheme}>
-          <TextField id="standard-basic" label="Standard" variant="standard" />
+          <TextField
+            className="search"
+            label="Search a word"
+            id="standard-basic"
+            variant="standard"
+            value={word}
+            onChange={(e) => setWord(e.target.value)}
+          />
           <TextField
             id="outlined-select-currency"
             select
-            label="Select"
+            className="select"
+            label="Language"
             value={category}
             onChange={(e) => {
-              setCategory(e.target.value);
+              handleChange(e.target.value);
             }}
             helperText="Please select your language"
           >
