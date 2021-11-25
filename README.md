@@ -4,6 +4,7 @@
 
 - main
 - first > here to begin with
+- use command -> git remote remove origin
 
 https://github.com/LishuGupta652/react
 
