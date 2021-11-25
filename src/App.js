@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 function App() {
   const [word, setWord] = useState("");
   const [meanings, setMeanings] = useState([]);
+  const [category, setCategory] = useState("en");
   const getDictionary = async () => {
     try {
       const data = await axios.get(
@@ -31,7 +32,7 @@ function App() {
         maxWidth="md"
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
-        <Header />
+        <Header category={category} setCategory={setCategory} />
       </Container>
     </div>
   );
