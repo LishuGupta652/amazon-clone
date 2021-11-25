@@ -1,8 +1,9 @@
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Container } from "@material-ui/core";
+import Container from "@mui/material/Container";
 import Header from "./components/Header/Header";
+
 function App() {
   const [word, setWord] = useState("");
   const [meanings, setMeanings] = useState([]);
