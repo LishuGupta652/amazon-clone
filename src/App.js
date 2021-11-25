@@ -18,7 +18,7 @@ function App() {
       console.log(error);
     }
   };
-
+  // TODO: #1 THIS IS COMMING
   useEffect(() => {
     getDictionary();
   }, []);
